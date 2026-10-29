@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090713">
+<title>ISMANOV DIAMONDS | Free Fire</title>
+<style>
+:root {
+  --bg:#090713;
+  --card:#171326;
+  --purple:#9b5cff;
+  --pink:#ff3fa4;
+  --gold:#ffd76a;
+  --text:#fffaff;
+  --muted:#b6adc9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(ellipse at 10% 5%,#39205c 0,transparent 35%),
+    radial-gradient(ellipse at 95% 45%,#251044 0,transparent 30%),
+    var(--bg);
+  min-height:100vh;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:10;
+  background:#0c0915eF;
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #ffffff15;
+}
+nav{
+  min-height:75px;display:flex;align-items:center;
+  justify-content:space-between;gap:18px;
+}
+.logo{font-size:23px;font-weight:1000;letter-spacing:1px}
+.logo span{color:var(--pink)}
+.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}
+.navlinks a:hover{color:var(--gold)}
+.btn{
+  padding:12px 17px;border:0;border-radius:12px;
+  font-weight:800;color:white;
+  background:linear-gradient(110deg,var(--purple),var(--pink));
+  box-shadow:0 6px 24px #9b5cff25;
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--gold);outline-offset:3px
+}
+.btn-outline{background:#ffffff0a;border:1px solid #ffffff25;box-shadow:none}
+.hero{padding:70px 0 48px}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:35px;align-items:center;
+}
+.pill{
+  display:inline-block;border:1px solid #ff3fa455;
+  color:#ff92ce;background:#ff3fa411;
+  padding:8px 13px;border-radius:30px;font-size:12px;
+  font-weight:bold;letter-spacing:1px;
+}
+h1{
+  font-size:clamp(42px,6vw,75px);
+  line-height:1.02;letter-spacing:-2px;
+  margin:22px 0;
+}
+.gradient{
+  background:linear-gradient(100deg,#fff0a6,#ff69bd,#b28bff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:var(--muted);line-height:1.8;max-width:530px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.art{
+  position:relative;min-height:340px;border-radius:30px;
+  border:1px solid #ffffff19;overflow:hidden;
+  display:grid;place-items:center;
+  background:
+    radial-gradient(circle at center,#7b32d8aa,transparent 48%),
+    linear-gradient(145deg,#25153e,#100c20);
+}
+.art:before,.art:after{
+  content:"";position:absolute;border:1px solid #e7c5ff35;
+  width:250px;height:250px;border-radius:50%;
+}
+.art:after{width:310px;height:310px;border-style:dashed}
+.bigdiamond{
+  z-index:1;font-size:125px;
+  filter:drop-shadow(0 0 30px #a66cff);
+  animation:float 3s ease-in-out infinite;
+}
+.spark{position:absolute;font-size:27px;color:var(--gold)}
+.s1{top:20%;left:20%}.s2{right:17%;top:25%}.s3{bottom:20%;left:23%}
+@keyframes float{50%{transform:translateY(-13px) rotate(4deg)}}
+.notice{
+  margin-top:22px;padding:15px 17px;border-radius:13px;
+  background:#ffffff08;border:1px solid #ffffff12;
+  color:var(--muted);font-size:13px;line-height:1.7;
+}
+.notice b{color:var(--gold)}
+.section{padding:42px 0 55px}
+.section-title{font-size:clamp(27px,4vw,38px);margin-bottom:9px}
+.section-sub{color:var(--muted);line-height:1.7;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.package{
+  position:relative;background:linear-gradient(145deg,#211a35,#120f20);
+  border:1px solid #ffffff15;border-radius:20px;
+  padding:22px;overflow:hidden;
+  transition:.25s;
+}
+.package:hover{
+  transform:translateY(-5px);
+  border-color:#b58bff99;
+  box-shadow:0 16px 40px #0004;
+}
+.package.featured{border-color:#bb8bff88}
+.tag{
+  display:inline-block;background:#9b5cff24;color:#d6b9ff;
+  border-radius:20px;padding:6px 10px;font-size:11px;font-weight:bold;
+}
+.diamond-icon{
+  text-align:center;font-size:63px;margin:18px 0 10px;
+  filter:drop-shadow(0 0 15px #53a8ff55);
+}
+.package h3{text-align:center;font-size:20px}
+.amount{text-align:center;font-size:14px;color:var(--muted);margin:8px 0 15px}
+.price{text-align:center;font-size:28px;font-weight:900;color:var(--gold)}
+.price small{font-size:12px;color:var(--muted);font-weight:normal}
+.package ul{list-style:none;margin:20px 0;color:var(--muted);font-size:13px}
+.package li{padding:7px 0;border-bottom:1px solid #ffffff0b}
+.package li:before{content:"✦ ";color:var(--pink)}
+.package .btn{width:100%;margin-top:5px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{padding:22px;background:#ffffff07;border:1px solid #ffffff12;border-radius:16px}
+.stepnum{font-size:25px;color:var(--pink);font-weight:900}
+.step h3{margin:8px 0}
+.step p{color:var(--muted);font-size:13px;line-height:1.7}
+.payment-box{
+  padding:25px;background:linear-gradient(120deg,#26133c,#171328);
+  border:1px solid #ffffff1b;border-radius:20px;
+}
+.payment-row{
+  display:flex;justify-content:space-between;gap:12px;
+  align-items:center;padding:15px 0;border-bottom:1px solid #ffffff15;
+}
+.payment-row:last-child{border-bottom:0}
+.payment-row span{color:var(--muted);font-size:14px}
+.payment-row strong{overflow-wrap:anywhere}
+.copy{padding:8px 12px;border:1px solid #ffffff22;background:#ffffff0b;color:white;border-radius:9px}
+.faq details{background:#ffffff07;border:1px solid #ffffff12;border-radius:13px;padding:16px;margin:10px 0}
+.faq summary{cursor:pointer;font-weight:bold}
+.faq details p{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.7}
+footer{border-top:1px solid #ffffff12;padding:28px 0;color:var(--muted);font-size:13px}
+.footerrow{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{
+  display:none;position:fixed;inset:0;z-index:30;
+  padding:18px;background:#05030bdc;overflow:auto;
+  align-items:center;justify-content:center;
+}
+.modal.open{display:flex}
+.modalbox{
+  position:relative;width:min(510px,100%);
+  padding:27px;border-radius:22px;
+  background:#171326;border:1px solid #ffffff20;
+}
+.modalbox h2{font-size:26px;margin-bottom:8px}
+.modalbox>p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:20px}
+.close{
+  position:absolute;right:14px;top:12px;width:35px;height:35px;
+  background:#ffffff12;color:white;border:0;border-radius:50%;font-size:22px;
+}
+.field{margin:15px 0}
+.field label{display:block;font-size:13px;color:#ddd2ef;margin-bottom:8px}
+.field input,.field select{
+  width:100%;padding:13px;border-radius:11px;
+  color:white;background:#0e0b19;border:1px solid #ffffff20;
+}
+.field select option{background:#171326}
+.order-summary{
+  background:#ffffff08;border:1px solid #ffffff12;
+  border-radius:12px;padding:15px;margin:18px 0;
+  line-height:1.8;font-size:14px;
+}
+.order-summary span{color:var(--muted)}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.modal-actions button{flex:1}
+.toast{
+  position:fixed;bottom:20px;left:50%;z-index:60;
+  transform:translate(-50%,100px);
+  padding:13px 18px;background:#2b2140;
+  border:1px solid #ffffff22;border-radius:12px;
+  transition:.25s;max-width:90%;text-align:center;font-size:14px;
+}
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:800px){
+ .hero-grid{grid-template-columns:1fr}
+ .art{min-height:270px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .navlinks{gap:12px}
+}
+@media(max-width:560px){
+ .nav{flex-wrap:wrap;padding:15px 0}
+ .navlinks{order:3;width:100%;justify-content:space-between;font-size:12px}
+ .hero{padding-top:40px}
+ .grid,.steps{grid-template-columns:1fr}
+ .hero-grid{gap:20px}
+ .bigdiamond{font-size:105px}
+ .payment-row{align-items:flex-start;flex-wrap:wrap}
+ .section{padding:30px 0 40px}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">ISMANOV<span>💎</span></a>
+    <div class="navlinks">
+      <a href="#home">Главная</a>
+      <a href="#diamonds">Алмазы</a>
+      <a href="#payment">Оплата</a>
+      <a href="#faq">Вопросы</a>
+    </div>
+    <a href="#diamonds" class="btn">Купить алмазы</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill">💎 FREE FIRE TOP-UP</span>
+      <h1>ТВОЯ ИГРА.<br>ТВОЙ СТИЛЬ.<br><span class="gradient">ТВОИ АЛМАЗЫ.</span></h1>
+      <p>ISMANOV DIAMONDS — витрина наборов алмазов для игроков Free Fire. Выбери набор и ознакомься с оформлением заказа.</p>
+      <div class="hero-buttons">
+        <a href="#diamonds" class="btn">Выбрать алмазы →</a>
+        <a href="#payment" class="btn btn-outline">Способ оплаты</a>
+      </div>
+      <div class="notice">
+        <b>Важно:</b> это демонстрационный магазин. Перед приёмом реальных заказов необходимо проверить цены, организовать безопасное пополнение и настроить получение заказов.
+      </div>
+    </div>
+    <div class="art" aria-label="Неоновый игровой фон">
+      <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span>
+      <div class="bigdiamond">💎</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="diamonds">
+  <div class="container">
+    <h2 class="section-title">Выбери свой <span class="gradient">набор</span></h2>
+    <p class="section-sub">Нажми «Оформить заказ», чтобы указать игровой UID и увидеть детали покупки.</p>
+    <div class="grid">
+      <article class="package" data-pack="Набор Starter" data-amount="100" data-price="100">
+        <span class="tag">STARTER</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Starter Pack</h3>
+        <div class="amount">100 алмазов</div>
+        <div class="price">100 сом <small>пример</small></div>
+        <ul><li>Небольшой набор</li><li>Для новых игроков</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+      <article class="package featured" data-pack="Набор Popular" data-amount="310" data-price="250">
+        <span class="tag">🔥 ПОПУЛЯРНЫЙ</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Popular Pack</h3>
+        <div class="amount">310 алмазов</div>
+        <div class="price">250 сом <small>пример</small></div>
+        <ul><li>Средний набор</li><li>Для любимых покупок</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+      <article class="package" data-pack="Набор Pro" data-amount="520" data-price="400">
+        <span class="tag">PRO PLAYER</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Pro Pack</h3>
+        <div class="amount">520 алмазов</div>
+        <div class="price">400 сом <small>пример</small></div>
+        <ul><li>Большой набор</li><li>Для активных игроков</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+      <article class="package" data-pack="Набор Elite" data-amount="1060" data-price="800">
+        <span class="tag">ELITE</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Elite Pack</h3>
+        <div class="amount">1060 алмазов</div>
+        <div class="price">800 сом <small>пример</small></div>
+        <ul><li>Увеличенный набор</li><li>Выбор для коллекции</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+      <article class="package" data-pack="Набор Master" data-amount="2180" data-price="1600">
+        <span class="tag">MASTER</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Master Pack</h3>
+        <div class="amount">2180 алмазов</div>
+        <div class="price">1600 сом <small>пример</small></div>
+        <ul><li>Крупный набор</li><li>Для опытных игроков</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+      <article class="package" data-pack="Набор Legend" data-amount="5600" data-price="4000">
+        <span class="tag">LEGEND</span>
+        <div class="diamond-icon">💎</div>
+        <h3>Legend Pack</h3>
+        <div class="amount">5600 алмазов</div>
+        <div class="price">4000 сом <small>пример</small></div>
+        <ul><li>Самый большой набор</li><li>Для крупных заказов</li><li>Оформление заказа</li></ul>
+        <button class="btn buy">Оформить заказ</button>
+      </article>
+    </div>
+    <div class="notice">
+      Цены и количества выше приведены исключительно для макета. Они не подтверждают наличие товара или реальную стоимость пополнения. Уточни актуальные предложения и разрешённый способ пополнения до начала продаж.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="payment">
+  <div class="container">
+    <h2 class="section-title">Оплата через <span class="gradient">MBank</span></h2>
+    <p class="section-sub">Реквизиты для ручного перевода. Сам сайт не списывает деньги и не проверяет поступление платежа.</p>
+    <div class="payment-box">
+      <div class="payment-row">
+        <span>Способ оплаты</span><strong>MBank</strong>
+      </div>
+      <div class="payment-row">
+        <span>Номер получателя</span>
+        <strong id="bankNumber">224123444</strong>
+        <button class="copy" id="copyBank">Копировать</button>
+      </div>
+      <div class="payment-row">
+        <span>Порядок оплаты</span><strong>Сначала согласуй заказ</strong>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.8;margin-top:16px">
+        Проверь реквизиты и имя получателя в официальном приложении MBank. Не переводи деньги, если данные получателя не совпадают. Не отправляй никому PIN-код, пароль или код подтверждения.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Как оформить заказ?</h2>
+    <p class="section-sub">Три простых шага.</p>
+    <div class="steps">
+      <div class="step"><div class="stepnum">01</div><h3>Выбери набор</h3><p>Нажми на карточке алмазов кнопку оформления заказа.</p></div>
+      <div class="step"><div class="stepnum">02</div><h3>Укажи UID</h3><p>Проверь игровой UID и выбранный набор перед отправкой данных продавцу.</p></div>
+      <div class="step"><div class="stepnum">03</div><h3>Согласуй оплату</h3><p>Подтверди наличие товара, актуальную цену и порядок получения до перевода денег.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <h2 class="section-title">Частые вопросы</h2>
+    <details><summary>Алмазы выдаются автоматически?</summary><p>Нет. В этой версии автоматического пополнения нет. Для этого понадобится интеграция с разрешённым поставщиком и надёжной системой обработки заказов.</p></details>
+    <details><summary>Можно ли зайти с телефона?</summary><p>Да. Страница адаптируется под телефоны, планшеты и компьютеры.</p></details>
+    <details><summary>Нужно ли сообщать пароль Free Fire?</summary><p>Нет. Не передавай пароль, PIN-коды или коды подтверждения продавцу. Используй только безопасный способ пополнения, не требующий передачи учётных данных.</p></details>
+    <details><summary>Куда отправляется заказ?</summary><p>Сейчас заказ отображается в окне оформления на твоём устройстве. Чтобы заказы реально приходили тебе, нужно подключить контакт для заказов или сервер.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footerrow">
+    <a href="#home" class="logo">ISMANOV<span>💎</span></a>
+    <span>© <span id="year"></span> ISMANOV DIAMONDS</span>
+    <a href="#home">Наверх ↑</a>
+  </div>
+  <div class="container" style="margin-top:14px;line-height:1.7">
+    Независимый демонстрационный проект. Неофициальный сайт, не связанный с Garena или Free Fire.
+  </div>
+</footer>
+
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+  <div class="modalbox">
+    <button class="close" id="closeModal" aria-label="Закрыть">×</button>
+    <h2 id="orderTitle">💎 Оформление заказа</h2>
+    <p>Заполни данные. Это демонстрационная форма: она не списывает деньги и сама по себе не отправляет заказ продавцу.</p>
+    <form id="orderForm">
+      <div class="field">
+        <label for="gameUid">Твой игровой UID</label>
+        <input id="gameUid" name="gameUid" inputmode="numeric" pattern="[0-9]{5,20}" minlength="5" maxlength="20" placeholder="Например, 1234567890" required>
+      </div>
+      <div class="field">
+        <label for="playerName">Игровой никнейм (необязательно)</label>
+        <input id="playerName" name="playerName" maxlength="40" placeholder="Твой ник">
+      </div>
+      <div class="field">
+        <label for="packageSelect">Набор алмазов</label>
+        <select id="packageSelect" required>
+          <option value="Starter">Starter — 100 алмазов</option>
+          <option value="Popular">Popular — 310 алмазов</option>
+          <option value="Pro">Pro — 520 алмазов</option>
+          <option value="Elite">Elite — 1060 алмазов</option>
+          <option value="Master">Master — 2180 алмазов</option>
+          <option value="Legend">Legend — 5600 алмазов</option>
+        </select>
+      </div>
+      <div class="order-summary" id="orderSummary">
+        <div><span>Набор:</span> <strong id="summaryPack">Starter</strong></div>
+        <div><span>Цена-пример:</span> <strong id="summaryPrice">100 сом</strong></div>
+        <div><span>UID:</span> <strong id="summaryUid">Будет указан после заполнения</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn">Подготовить заказ</button>
+        <button type="button" class="btn btn-outline" id="cancelOrder">Отмена</button>
+      </div>
+    </form>
+    <div id="result" class="notice" style="display:none" aria-live="polite"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const modal = $("#orderModal");
+  const toast = $("#toast");
+  let selectedPackage = null;
+  let toastTimer;
+
+  const packages = {
+    Starter:{label:"Starter Pack",amount:100,price:100},
+    Popular:{label:"Popular Pack",amount:310,price:250},
+    Pro:{label:"Pro Pack",amount:520,price:400},
+    Elite:{label:"Elite Pack",amount:1060,price:800},
+    Master:{label:"Master Pack",amount:2180,price:1600},
+    Legend:{label:"Legend Pack",amount:5600,price:4000}
+  };
+
+  function showToast(message){
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove("show"),2600);
+  }
+
+  function updateSummary(){
+    const key = $("#packageSelect").value;
+    const p = packages[key];
+    $("#summaryPack").textContent = p.label + " — " + p.amount + " алмазов";
+    $("#summaryPrice").textContent = p.price + " сом (пример)";
+    $("#summaryUid").textContent = $("#gameUid").value.trim() || "Будет указан после заполнения";
+  }
+
+  function openOrder(key){
+    selectedPackage = packages[key] ? key : "Starter";
+    $("#packageSelect").value = selectedPackage;
+    $("#orderForm").style.display = "block";
+    $("#result").style.display = "none";
+    $("#orderForm").reset();
+    $("#packageSelect").value = selectedPackage;
+    updateSummary();
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    $("#gameUid").focus();
+  }
+
+  function closeOrder(){
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".package").forEach(card=>{
+    card.querySelector(".buy").addEventListener("click",()=>{
+      const key = card.dataset.pack.replace("Набор ","");
+      openOrder(key);
+    });
+  });
+
+  $("#packageSelect").addEventListener("change",updateSummary);
+  $("#gameUid").addEventListener("input",updateSummary);
+  $("#closeModal").addEventListener("click",closeOrder);
+  $("#cancelOrder").addEventListener("click",closeOrder);
+
+  modal.addEventListener("click",e=>{
+    if(e.target===modal) closeOrder();
+  });
+
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape" && modal.classList.contains("open")) closeOrder();
+  });
+
+  $("#orderForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const uid = $("#gameUid").value.trim();
+    const nickname = $("#playerName").value.trim();
+    const key = $("#packageSelect").value;
+    const p = packages[key];
+
+    if(!/^[0-9]{5,20}$/.test(uid)){
+      showToast("Проверь UID: нужны цифры длиной от 5 до 20 символов.");
+      return;
+    }
+
+    $("#result").style.display="block";
+    $("#result").innerHTML =
+      "<b>Заказ подготовлен — не оплачен.</b><br>" +
+      "Набор: "+p.label+" ("+p.amount+" алмазов)<br>" +
+      "UID: "+uid+"<br>" +
+      (nickname ? "Ник: "+nickname+"<br>" : "")+
+      "Цена на сайте: "+p.price+" сом (пример)<br><br>"+
+      "Это только предварительные данные. Заказ не отправлен продавцу, оплата не проверена, алмазы не начислены. Сначала свяжись с продавцом и подтверди актуальную цену и наличие.";
+    $("#orderForm").style.display="none";
+  });
+
+  $("#copyBank").addEventListener("click",async()=>{
+    const number = $("#bankNumber").textContent.trim();
+    try{
+      await navigator.clipboard.writeText(number);
+      showToast("Номер MBank скопирован");
+    }catch(err){
+      const area = document.createElement("textarea");
+      area.value = number;
+      area.style.position="fixed";
+      area.style.opacity="0";
+      document.body.appendChild(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+      showToast(copied ? "Номер MBank скопирован" : "Номер: "+number);
+    }
+  });
+
+  $("#year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
+
+
